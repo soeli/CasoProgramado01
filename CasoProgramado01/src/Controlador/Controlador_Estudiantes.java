@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Modelo.ConexionBD;
+import Vista.VentanaEstudiantes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,13 +18,13 @@ import java.awt.event.ActionListener;
 public class Controlador_Estudiantes implements ActionListener{
     
    // public MetodosEstudiantes metodosEstudiantes;
-    FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes;
+    VentanaEstudiantes ventanaEstudiantes;
     ConexionBD conexionBD; 
  
-    public Controlador_Estudiantes(FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes, ConexionBD conexionBD)
+    public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes, ConexionBD conexionBD)
     {
         this.conexionBD=conexionBD;
-        this.frm_MantenimientoEstudiantes=frm_MantenimientoEstudiantes;
+        this.ventanaEstudiantes=ventanaEstudiantes;
     }
     
     public void actionPerformed(ActionEvent e)
@@ -32,9 +34,9 @@ public class Controlador_Estudiantes implements ActionListener{
         
         if(e.getActionCommand().equals("Agregar"))
         {
-            conexionBD.registrarEstudiante(frm_MantenimientoEstudiantes.devolverInformacion());
-            frm_MantenimientoEstudiantes.mostrarMensaje("El estudiante fue registrado de forma correcta");
-            frm_MantenimientoEstudiantes.resetearGUI();
+            conexionBD.registrarEstudiante(ventanaEstudiantes.devolverInformacion());
+            ventanaEstudiantes.mostrarMensaje("El estudiante fue registrado de forma correcta");
+            ventanaEstudiantes.resetearVentana();
             
         }
         if(e.getActionCommand().equals("Consultar") || e.getActionCommand().equals("Consulta_Rapida"))
@@ -43,9 +45,9 @@ public class Controlador_Estudiantes implements ActionListener{
         }
         if(e.getActionCommand().equals("Modificar"))
         {
-            conexionBD.actualizarEstudiante(frm_MantenimientoEstudiantes.devolverInformacion(),"estudiantes");
-            frm_MantenimientoEstudiantes.mostrarMensaje("El estudiante fue modificado de forma correcta.");
-            frm_MantenimientoEstudiantes.resetearGUI();
+            conexionBD.actualizarEstudiante(ventanaEstudiantes.devolverInformacion(),"estudiantes");
+            ventanaEstudiantes.mostrarMensaje("El estudiante fue modificado de forma correcta.");
+            ventanaEstudiantes.resetearVentana();
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
@@ -56,16 +58,16 @@ public class Controlador_Estudiantes implements ActionListener{
     }
     public void buscar()
     {
-       if(conexionBD.consultarEstudiante(frm_MantenimientoEstudiantes.devolverCedula()))
+       if(conexionBD.consultarEstudiante(ventanaEstudiantes.devolverCedula()))
        {
            
-            frm_MantenimientoEstudiantes.mostrarInformacion(conexionBD.getArregloInformacion());
-            frm_MantenimientoEstudiantes.habilitarEdicion();
+            ventanaEstudiantes.mostrarInformacion(conexionBD.getArregloInformacion());
+            ventanaEstudiantes.habilitarEdicion();
        }
        else
        {
-           frm_MantenimientoEstudiantes.mostrarMensaje("La cédula buscada no se encuentra.");
-            frm_MantenimientoEstudiantes.habilitarAgregar();
+           ventanaEstudiantes.mostrarMensaje("La cédula buscada no se encuentra.");
+            ventanaEstudiantes.habilitarAgregar();
        }
     }
     

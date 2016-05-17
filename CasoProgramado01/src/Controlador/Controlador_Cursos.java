@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Vista.VentanaCursos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,12 +16,12 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_Cursos implements ActionListener{
 
-    FRM_MantenimientoCursos frm_mantenimientoCursos;
+    VentanaCursos ventanaCursos;
     
     public ConexionBD conexionBD;
-    public Controlador_Cursos(FRM_MantenimientoCursos frm_mantenimientoCursos, ConexionBD conexionBD)
+    public Controlador_Cursos(VentanaCursos ventanaCursos, ConexionBD conexionBD)
     {
-        this.frm_mantenimientoCursos=frm_mantenimientoCursos;
+        this.ventanaCursos=ventanaCursos;
         this.conexionBD=conexionBD;
     }
     
@@ -28,9 +29,9 @@ public class Controlador_Cursos implements ActionListener{
     {
         if(evento.getActionCommand().equals("Agregar"))
         {
-            conexionBD.registrarCurso(frm_mantenimientoCursos.devolverInformacion());
-            frm_mantenimientoCursos.mostrarMensaje("El curso fue registrado de forma correcta");
-            frm_mantenimientoCursos.resetearGUI();
+            conexionBD.registrarCurso(ventanaCursos.devolverInformacion());
+            ventanaCursos.mostrarMensaje("El curso fue registrado de forma correcta");
+            ventanaCursos.resetearGUI();
         }
         if(evento.getActionCommand().equals("Consultar") || evento.getActionCommand().equals("ConsultaRapida"))
         {
@@ -38,30 +39,30 @@ public class Controlador_Cursos implements ActionListener{
         }
         if(evento.getActionCommand().equals("Modificar"))
         {
-            conexionBD.actualizarCurso(frm_mantenimientoCursos.devolverInformacion(),"cursos");
-            frm_mantenimientoCursos.mostrarMensaje("El curso fue modificado de forma correcta.");
-            frm_mantenimientoCursos.resetearGUI();     
+            conexionBD.actualizarCurso(ventanaCursos.devolverInformacion(),"cursos");
+            ventanaCursos.mostrarMensaje("El curso fue modificado de forma correcta.");
+            ventanaCursos.resetearGUI();     
         }
         if(evento.getActionCommand().equals("Eliminar"))
         {
-            conexionBD.eliminarEstudiante(frm_mantenimientoCursos.devolverSigla(),"cursos","sigla");
-            frm_mantenimientoCursos.mostrarMensaje("El curso fue eliminado de forma correcta.");
-            frm_mantenimientoCursos.resetearGUI();
+            conexionBD.eliminarEstudiante(ventanaCursos.devolverSigla(),"cursos","sigla");
+            ventanaCursos.mostrarMensaje("El curso fue eliminado de forma correcta.");
+            ventanaCursos.resetearGUI();
         }
     
     }
     public void buscar()
     {
-        if(conexionBD.consultarCurso(frm_mantenimientoCursos.devolverSigla()))
+        if(conexionBD.consultarCurso(ventanaCursos.devolverSigla()))
        {
            
-            frm_mantenimientoCursos.mostrarInformacion(conexionBD.getArregloInformacion());
-            frm_mantenimientoCursos.habilitarEdicion();
+            ventanaCursos.mostrarInformacion(conexionBD.getArregloInformacion());
+            ventanaCursos.habilitarEdicion();
        }
        else
        {
-           frm_mantenimientoCursos.mostrarMensaje("La sigla buscada no se encuentra.");
-            frm_mantenimientoCursos.habilitarAgregar();
+           ventanaCursos.mostrarMensaje("La sigla buscada no se encuentra.");
+            ventanaCursos.habilitarAgregar();
        }
     
     }
