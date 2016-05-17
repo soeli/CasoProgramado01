@@ -6,6 +6,8 @@
 
 package Vista;
 
+import Controlador.Controlador_Cursos;
+
 /**
  *
  * @author SOFIA ELIZONDO
@@ -17,8 +19,71 @@ public class InformacionCursos extends javax.swing.JPanel {
      */
     public InformacionCursos() {
         initComponents();
+        cargarCreditos();
+        deshabilitarCampos();
     }
-
+public void cargarCreditos()
+    {
+        this.jcb_Creditos.removeAllItems();
+        for(int contador=0;contador<=10;contador++)
+        {
+            this.jcb_Creditos.addItem(""+contador);
+        }
+        this.jcb_Creditos.setSelectedIndex(4);
+        
+    }
+    public void agregarEventos(Controlador_Cursos controlador)
+    {
+        this.btn_ConsultaRapida.addActionListener(controlador);
+    }
+    public String devolverSigla()
+    {
+        return this.jt_Sigla.getText();
+    }
+    public void habilitarEdicion()
+    {
+        this.jt_Sigla.setEnabled(false);
+        this.jt_Nombre.setEnabled(true);
+        this.jcb_Creditos.setEnabled(true);
+        this.jt_Horario.setEnabled(true);
+    }
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.jt_Nombre.setText(arreglo[0]);
+        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[1]));;
+        this.jt_Horario.setText(arreglo[2]);
+        
+    }
+    public void habilitarCampos()
+    {
+        this.jt_Nombre.setEnabled(true);
+        this.jcb_Creditos.setEnabled(true);
+        this.jt_Horario.setEnabled(true);
+    }
+    public String[] devolverInformacion()
+    {
+        String informacion[]=new String[4];
+        informacion[0]=this.jt_Sigla.getText();
+        informacion[1]=this.jt_Nombre.getText();
+        informacion[2]=""+this.jcb_Creditos.getSelectedIndex();
+        informacion[3]=this.jt_Horario.getText();
+        
+        return informacion;
+    }
+    public void deshabilitarCampos()
+    {
+        this.jt_Sigla.setText("");
+        this.jt_Sigla.setEnabled(true);
+        
+        this.jt_Nombre.setText("");
+        this.jt_Nombre.setEnabled(false);
+        
+        this.jcb_Creditos.setSelectedIndex(4);
+        this.jcb_Creditos.setEnabled(false);
+        
+        this.jt_Horario.setText("");
+        this.jt_Horario.setEnabled(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

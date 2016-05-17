@@ -6,6 +6,8 @@
 
 package Vista;
 
+import Controlador.Controlador_Estudiantes;
+
 /**
  *
  * @author SOFIA ELIZONDO
@@ -15,10 +17,57 @@ public class InformacionPersonal extends javax.swing.JPanel {
     /**
      * Creates new form InformacionPersonal
      */
+    
+    Controlador_Estudiantes controlador;
     public InformacionPersonal() {
         initComponents();
+        deshabilitarCampos();
     }
-
+    
+    public void agregarEventos(Controlador_Estudiantes controlador)
+    {
+        this.controlador=controlador;
+        this.btn_ConsultaRapida.addActionListener(controlador);
+        this.jt_Cedula.addActionListener(controlador);
+    }
+    public String[] devolverInformacion()
+    {
+        String informacion[]=new String[3];
+        informacion[0]=this.jt_Cedula.getText();
+        informacion[1]=this.jt_NombreCompleto.getText();
+        informacion[2]=this.jt_Direccion.getText();
+        
+        return informacion;
+    }
+    public String devolverCedula()
+    {
+        return this.jt_Cedula.getText();
+    }
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.jt_NombreCompleto.setText(arreglo[0]);
+        this.jt_Direccion.setText(arreglo[1]);
+    }
+    public void habilitarCampos()
+    {
+        this.jt_NombreCompleto.setEnabled(true);
+        this.jt_Direccion.setEnabled(true);
+    }
+    public void deshabilitarCampos()
+    {
+        this.jt_Cedula.setEnabled(true);
+        this.jt_Cedula.setText("");
+        this.jt_NombreCompleto.setText("");
+        this.jt_Direccion.setText("");
+        this.jt_NombreCompleto.setEnabled(false);
+        this.jt_Direccion.setEnabled(false);
+    }
+    public void habilitarEdicion()
+    {
+        this.jt_Cedula.setEnabled(false);
+        this.jt_NombreCompleto.setEnabled(true);
+        this.jt_Direccion.setEnabled(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

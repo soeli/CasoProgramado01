@@ -21,9 +21,9 @@ public class Controlador_Estudiantes implements ActionListener{
     VentanaEstudiantes ventanaEstudiantes;
     ConexionBD conexionBD; 
  
-    public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes, ConexionBD conexionBD)
+    public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes)
     {
-        this.conexionBD=conexionBD;
+        //this.conexionBD=conexionBD;
         this.ventanaEstudiantes=ventanaEstudiantes;
     }
     

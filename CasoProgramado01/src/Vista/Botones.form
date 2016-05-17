@@ -49,7 +49,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="actionCommand" type="java.lang.String" value="Eliminar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Consultar">
@@ -61,13 +60,11 @@
     <Component class="javax.swing.JButton" name="btn_Agregar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar"/>
-        <Property name="actionCommand" type="java.lang.String" value="Agregar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Modificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
-        <Property name="actionCommand" type="java.lang.String" value="Modificar"/>
       </Properties>
     </Component>
   </SubComponents>

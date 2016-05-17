@@ -20,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
+        setVisible(false);
         this.setLocation(200, 100);
         controlador_MenuPrincipal= new Controlador_MenuPrincipal();
         agregarEventos();
