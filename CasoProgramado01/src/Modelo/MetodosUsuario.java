@@ -45,7 +45,8 @@ public class MetodosUsuario {
         {
             if(arrayUsuario.get(contador).getUsuario().equals(usuario))
             {
-                arregloInformacionConsultada[0]=arrayUsuario.get(contador).getNombre();
+                arregloInformacionConsultada[0]=arrayUsuario.get(contador).getUsuario();
+                arregloInformacionConsultada[1]=arrayUsuario.get(contador).getNombre();
                 existe=true;
             }
         

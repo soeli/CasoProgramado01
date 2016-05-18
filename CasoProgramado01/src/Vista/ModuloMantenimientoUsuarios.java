@@ -31,6 +31,7 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         login=new Login(this,controlador);
         controlador=new Controlador_Usuario(this, login);
         login.agregarEventos(controlador);
+        this.botones1.agregarEventosUsuario(controlador);
         
     }
 
@@ -57,6 +58,7 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
     {
         this.jt_NombreCompleto.setEnabled(true);
         this.jt_Usuario.setEnabled(true);
+        this.jt_Contrasenia.setEnabled(true);
     }
     public void deshabilitarCampos()
     {
@@ -72,12 +74,18 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         this.jt_Usuario.setEnabled(false);
         this.jt_NombreCompleto.setEnabled(true);
         this.jt_Contrasenia.setEnabled(true);
+        this.botones1.habilitarEdicion();
     }
     
+    public void habilitarAgregar()
+    {
+        this.botones1.habilitarAgregar();
+        this.habilitarCampos();
+    }
     public void resetearVentana()
     {
         this.botones1.deshabilitarBotones();
-        deshabilitarCampos();
+        this.deshabilitarCampos();
     }
     
      public void usuarioCorrecto()
@@ -131,10 +139,11 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
                             .addComponent(jl_Contraseña)
                             .addComponent(jl_Usuario))
                         .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                            .addComponent(jt_Usuario)
-                            .addComponent(jt_Contrasenia)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                .addComponent(jt_Contrasenia))
+                            .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -145,13 +154,13 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_NombreCompleto)
-                    .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_Usuario)
+                    .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_Usuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jl_NombreCompleto)
+                    .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_Contraseña))

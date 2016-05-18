@@ -28,14 +28,12 @@ public class Controlador_Usuario implements ActionListener{
     public Controlador_Usuario(ModuloMantenimientoUsuarios mantenimientoUsuarios, Login login)
     {
         archivo=new ArchivoUsuario();
-       
         metodosUsuario= new MetodosUsuario();
         this.mantenimientoUsuarios=mantenimientoUsuarios;
         this.login=login;
         if(this.archivo.cargarArchivoUsuario())
         {
             metodosUsuario.llenarArray(archivo.devolverInfromacionDelArchivoUsuario());
-            
         }
         else
         {
@@ -71,7 +69,7 @@ public class Controlador_Usuario implements ActionListener{
         if(e.getActionCommand().equals("Agregar"))
         {
             metodosUsuario.agregarUsuario(mantenimientoUsuarios.devolverInformacion());
-            mantenimientoUsuarios.mostrarMensaje("El estudiante fue registrado de forma correcta");
+            mantenimientoUsuarios.mostrarMensaje("El usuario fue registrado de forma correcta");
             mantenimientoUsuarios.resetearVentana();
             
         }
@@ -82,13 +80,13 @@ public class Controlador_Usuario implements ActionListener{
         if(e.getActionCommand().equals("Modificar"))
         {
             metodosUsuario.modificarUsuario(mantenimientoUsuarios.devolverInformacion());
-            mantenimientoUsuarios.mostrarMensaje("El estudiante fue modificado de forma correcta.");
+            mantenimientoUsuarios.mostrarMensaje("El usuario fue modificado de forma correcta.");
             mantenimientoUsuarios.resetearVentana();
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
             metodosUsuario.eliminarUsuario(mantenimientoUsuarios.devolverInformacion());
-            mantenimientoUsuarios.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
+            mantenimientoUsuarios.mostrarMensaje("El usuario fue eliminado de forma correcta.");
             mantenimientoUsuarios.resetearVentana();
         }
     }
@@ -101,8 +99,8 @@ public class Controlador_Usuario implements ActionListener{
             }
             else
             {
-                mantenimientoUsuarios.mostrarMensaje("La cédula buscada no se encuentra.");
-                mantenimientoUsuarios.resetearVentana();
+                mantenimientoUsuarios.mostrarMensaje("El usuario no existe");
+                mantenimientoUsuarios.habilitarAgregar();
             }
     }
     

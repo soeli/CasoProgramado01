@@ -9,6 +9,7 @@ package Vista;
 import Controlador.Controlador_Cursos;
 import Controlador.Controlador_Estudiantes;
 import Controlador.Controlador_Matricula;
+import Controlador.Controlador_Usuario;
 
 /**
  *
@@ -43,6 +44,13 @@ public class Botones extends javax.swing.JPanel {
         this.btn_Eliminar.addActionListener(controlador);
     }
     public void agregarEventosCursos(Controlador_Cursos controlador)
+    {
+        this.btn_Consultar.addActionListener(controlador);
+        this.btn_Agregar.addActionListener(controlador);
+        this.btn_Modificar.addActionListener(controlador);
+        this.btn_Eliminar.addActionListener(controlador);
+    }
+    public void agregarEventosUsuario(Controlador_Usuario controlador)
     {
         this.btn_Consultar.addActionListener(controlador);
         this.btn_Agregar.addActionListener(controlador);
