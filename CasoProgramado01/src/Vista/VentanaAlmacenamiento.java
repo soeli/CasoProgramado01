@@ -62,17 +62,17 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
             }
         });
         getContentPane().add(jbt_Archivos);
-        jbt_Archivos.setBounds(310, 80, 150, 150);
+        jbt_Archivos.setBounds(310, 90, 140, 140);
 
         jbt_BD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-02.png"))); // NOI18N
         jbt_BD.setOpaque(false);
         getContentPane().add(jbt_BD);
-        jbt_BD.setBounds(480, 80, 140, 150);
+        jbt_BD.setBounds(480, 90, 140, 140);
 
         jbt_XML.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-03.png"))); // NOI18N
         jbt_XML.setOpaque(false);
         getContentPane().add(jbt_XML);
-        jbt_XML.setBounds(650, 80, 150, 150);
+        jbt_XML.setBounds(650, 90, 140, 140);
 
         jbt_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-08.png"))); // NOI18N
         getContentPane().add(jbt_Salir);
