@@ -89,7 +89,7 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
                     .addComponent(jbt_Archivos)
                     .addComponent(jbt_BD)
                     .addComponent(jbt_XML))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbt_Salir)
                 .addGap(19, 19, 19))
         );

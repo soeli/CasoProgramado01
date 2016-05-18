@@ -45,7 +45,7 @@
                   <Component id="jbt_BD" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbt_XML" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jbt_Salir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
