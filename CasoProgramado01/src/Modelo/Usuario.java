@@ -6,17 +6,19 @@
 
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SOFIA ELIZONDO
  */
-public class Usuario {
+public class Usuario implements Serializable{
 
     private String usuario;
     private String contrasenia;
     private String nombre;
 
-    public Usuario(String usuario, String contrasenia, String nombre) {
+    public Usuario(String usuario, String nombre, String contrasenia) {
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.nombre = nombre;

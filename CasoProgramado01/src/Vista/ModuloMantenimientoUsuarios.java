@@ -106,6 +106,9 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
     {
         JOptionPane.showMessageDialog(null,mensaje);
     }
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,6 +120,12 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         jt_Usuario = new javax.swing.JTextField();
         jt_Contrasenia = new javax.swing.JPasswordField();
         botones1 = new Vista.Botones();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         jl_NombreCompleto.setText("Nombre Completo");
 
@@ -171,6 +180,10 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        controlador.ingresarInfo();
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments

@@ -34,7 +34,6 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
     {
         if(e.getActionCommand().equals("Salir"))
         {
-            System.exit(0);
             setVisible(false);
         }
         

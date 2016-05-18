@@ -13,10 +13,9 @@ import java.util.ArrayList;
  * @author SOFIA ELIZONDO
  */
 public class MetodosUsuario {
-    
-    
+      
     private ArrayList <Usuario> arrayUsuario;
-    String arregloInformacionConsultada[]=new String[1];
+    String arregloInformacionConsultada[]=new String[2];
     
     public MetodosUsuario()
     {
@@ -61,6 +60,7 @@ public class MetodosUsuario {
             if(arrayUsuario.get(contador).getUsuario().equals(arreglo[0]))
             {
                 arrayUsuario.get(contador).setNombre(arreglo[1]);
+                arrayUsuario.get(contador).setContrasenia(arreglo[2]);
             }
         }
     }
@@ -78,6 +78,7 @@ public class MetodosUsuario {
     {
         return this.arregloInformacionConsultada;
     }    
+    
     
     //Archivos
     public int getTamnio()
