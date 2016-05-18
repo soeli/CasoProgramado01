@@ -28,6 +28,8 @@ public class Controlador_Estudiantes implements ActionListener{
         this.ventanaEstudiantes=ventanaEstudiantes;
     }
     
+   
+    
     public void actionPerformed(ActionEvent e)
     {
         
@@ -71,6 +73,10 @@ public class Controlador_Estudiantes implements ActionListener{
            ventanaEstudiantes.mostrarMensaje("La cédula buscada no se encuentra.");
             ventanaEstudiantes.habilitarAgregar();
        }
+    }
+
+    public void seleccionAlmacenamiento(String almacenamiento) {
+        
     }
     
     

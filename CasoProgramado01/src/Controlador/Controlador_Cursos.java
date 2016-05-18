@@ -70,6 +70,10 @@ public class Controlador_Cursos implements ActionListener{
     
     }
 
+    public void seleccionAlmacenamiento(String almacenamiento) {
+        
+    }
+
     
 
     

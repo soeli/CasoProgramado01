@@ -117,21 +117,10 @@ public class Controlador_Matricula implements ActionListener{
             this.ventanaMatricula.habilitarAgregar();
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public void seleccionAlmacenamiento(String almacenamiento) {
+        
+    }
     
     
     

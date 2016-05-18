@@ -52,6 +52,9 @@ public class Controlador_MenuPrincipal implements ActionListener{
         }
         if(e.getActionCommand().equals("BD"))
         {
+            ventanaEstudiantes.seleccionAlmacenamiento("BD");
+            ventanaCursos.seleccionAlmacenamiento("BD");
+            ventanaMatricula.seleccionAlmacenamiento("BD");
             System.out.println("BD");
         }
         if(e.getActionCommand().equals("XML"))
