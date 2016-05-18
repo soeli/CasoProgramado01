@@ -10,6 +10,10 @@ import Modelo.ArchivoCurso;
 import Modelo.ArchivoEstudiante;
 import Modelo.ArchivoMatricula;
 import Modelo.ConexionBD;
+import Vista.Login;
+import Vista.MenuPrincipal;
+import Vista.ModuloMantenimientoUsuarios;
+import Vista.VentanaAlmacenamiento;
 import Vista.VentanaCursos;
 import Vista.VentanaEstudiantes;
 import Vista.VentanaMatricula;
@@ -27,14 +31,17 @@ public class Controlador_MenuPrincipal implements ActionListener{
     VentanaEstudiantes ventanaEstudiantes;
     VentanaCursos ventanaCursos;
     VentanaMatricula ventanaMatricula;
+    ModuloMantenimientoUsuarios mantenimientoUsuarios;
+    MenuPrincipal menuPrincipal;
+    Login login;
     
-    
-    public Controlador_MenuPrincipal()
+    public Controlador_MenuPrincipal(MenuPrincipal menuPrincipal)
     {
+      this.menuPrincipal=menuPrincipal;
       ventanaEstudiantes= new VentanaEstudiantes(conexionBD,archivoEstudiante);
       ventanaCursos= new VentanaCursos(conexionBD,archivoCurso); 
       ventanaMatricula =new VentanaMatricula(ventanaEstudiantes,ventanaCursos,conexionBD,archivoMatricula);    
-        
+      mantenimientoUsuarios=new ModuloMantenimientoUsuarios(menuPrincipal);
     }
     
     public void actionPerformed(ActionEvent e)
@@ -45,14 +52,16 @@ public class Controlador_MenuPrincipal implements ActionListener{
         }
         if(e.getActionCommand().equals("BD"))
         {
-            conexionBD = new ConexionBD();
-
             System.out.println("BD");
         }
         if(e.getActionCommand().equals("XML"))
         {
             System.out.println("XML");
-            System.exit(0);
+        }
+        if(e.getActionCommand().equals("SalirAlmacenamiento"))
+        {
+            System.out.println("Salir");
+            //ventanaEstudiantes.setVisible(false);
         }
         if(e.getActionCommand().equals("Salir"))
         {
@@ -61,10 +70,8 @@ public class Controlador_MenuPrincipal implements ActionListener{
         }
         if(e.getActionCommand().equals("Estudiantes"))
         {
-            
             System.out.println("Estudiantes");
             ventanaEstudiantes.setVisible(true);
-           
         }
         if(e.getActionCommand().equals("Cursos"))
         {
@@ -75,10 +82,11 @@ public class Controlador_MenuPrincipal implements ActionListener{
         {
             System.out.println("Matricula");
             ventanaMatricula.setVisible(true);
-           
         }
     
     }
+    
+   
     
     
 }

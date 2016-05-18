@@ -6,26 +6,31 @@
 
 package Vista;
 import Controlador.Controlador_MenuPrincipal;
+import Vista.Login;
+import Vista.VentanaAlmacenamiento;
+import javax.swing.JOptionPane;
 /**
  *
  * @author SOFIA ELIZONDO
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
-    
     Controlador_MenuPrincipal controlador_MenuPrincipal;
-    
+    VentanaAlmacenamiento almacenamiento;
     public MenuPrincipal() 
     {
         initComponents();
         this.setLocation(200, 100);
-        controlador_MenuPrincipal= new Controlador_MenuPrincipal();
+        controlador_MenuPrincipal= new Controlador_MenuPrincipal(this);
         agregarEventos();
+        almacenamiento= new VentanaAlmacenamiento();
+        almacenamiento.agregarEventos(controlador_MenuPrincipal);
     }
     
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
     
     public void agregarEventos()
     {
@@ -34,6 +39,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btn_Cursos.addActionListener(controlador_MenuPrincipal);
         this.btn_Matricula.addActionListener(controlador_MenuPrincipal);
         this.jm_Usuario.addActionListener(controlador_MenuPrincipal);
+    }
+    
+    public void mostrarAlmacenamiento()
+    {
+        almacenamiento.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -124,7 +134,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipal();
             }
         });
     }

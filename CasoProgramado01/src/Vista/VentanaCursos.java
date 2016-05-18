@@ -8,7 +8,6 @@ package Vista;
 
 import Controlador.Controlador_Cursos;
 import Modelo.ArchivoCurso;
-import Modelo.ArchivoMatricula;
 import Modelo.ConexionBD;
 import javax.swing.JOptionPane;
 

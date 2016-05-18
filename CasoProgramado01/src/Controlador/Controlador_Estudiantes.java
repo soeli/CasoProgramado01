@@ -59,6 +59,7 @@ public class Controlador_Estudiantes implements ActionListener{
     }
     public void buscar()
     {
+        
        if(conexionBD.consultarEstudiante(ventanaEstudiantes.devolverCedula()))
        {
            

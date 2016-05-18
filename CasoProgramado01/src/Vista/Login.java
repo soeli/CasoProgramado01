@@ -7,6 +7,8 @@
 package Vista;
 
 import Controlador.Controlador_Usuario;
+import Vista.ModuloMantenimientoUsuarios;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,12 +19,40 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Controlador_Usuario controlador;
-    public Login() {
+    ModuloMantenimientoUsuarios mantenimientoUsuarios;
+
+    
+    public Login(ModuloMantenimientoUsuarios mantenimientoUsuarios,Controlador_Usuario controlador) {
         initComponents();
-        
+        setLocation(500,200);
+        setVisible(true);
     }
     
+    public String devolverUsuario()
+    {
+        return this.jt_Usuario.getText();
+    }
+    
+    public String[] devolverInformacion()
+    {
+        String informacion[]=new String[3];
+        informacion[0]=this.jt_Usuario.getText();
+        informacion[2]=this.jt_Contrasenia.getText();
+        
+        return informacion;
+    }
+    
+    public void agregarEventos(Controlador_Usuario controlador)
+    {
+        this.jbtn_Aceptar.addActionListener(controlador);
+        this.jbt_NuevoRegistro.addActionListener(controlador);
+    }
+    
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
+            
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -31,10 +61,8 @@ public class Login extends javax.swing.JFrame {
         jt_Usuario = new javax.swing.JTextField();
         jl_Contraseña = new javax.swing.JLabel();
         jbtn_Aceptar = new javax.swing.JButton();
-        jpt_Contraseña = new javax.swing.JPasswordField();
-        jbt_Cancekar = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jt_Contrasenia = new javax.swing.JPasswordField();
+        jbt_NuevoRegistro = new javax.swing.JButton();
 
         jl_Usuario.setText("Usuario");
 
@@ -42,29 +70,29 @@ public class Login extends javax.swing.JFrame {
 
         jbtn_Aceptar.setText("Aceptar");
 
-        jbt_Cancekar.setText("Cancelar");
+        jbt_NuevoRegistro.setText("Nuevo Registro");
+        jbt_NuevoRegistro.setActionCommand("Registro");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_Usuario)
-                            .addComponent(jl_Contraseña))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jt_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(jpt_Contraseña)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jbtn_Aceptar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbt_Cancekar)))
+                    .addComponent(jl_Usuario)
+                    .addComponent(jl_Contraseña))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jt_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(jt_Contrasenia))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jbtn_Aceptar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jbt_NuevoRegistro)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,17 +101,14 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_Usuario)
                     .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jl_Contraseña))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jpt_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Contraseña)
+                    .addComponent(jt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbtn_Aceptar)
-                    .addComponent(jbt_Cancekar))
+                    .addComponent(jbt_NuevoRegistro))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,11 +119,11 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jbt_Cancekar;
+    private javax.swing.JButton jbt_NuevoRegistro;
     private javax.swing.JButton jbtn_Aceptar;
     private javax.swing.JLabel jl_Contraseña;
     private javax.swing.JLabel jl_Usuario;
-    private javax.swing.JPasswordField jpt_Contraseña;
+    private javax.swing.JPasswordField jt_Contrasenia;
     private javax.swing.JTextField jt_Usuario;
     // End of variables declaration//GEN-END:variables
 }

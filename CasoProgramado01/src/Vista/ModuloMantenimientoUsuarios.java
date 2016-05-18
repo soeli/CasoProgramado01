@@ -8,6 +8,7 @@ package Vista;
 
 import Controlador.Controlador_Usuario;
 import javax.swing.JOptionPane;
+import Vista.Login;
 
 /**
  *
@@ -19,9 +20,18 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
      * Creates new form ModuloMantenimientoUsuarios
      */
     Controlador_Usuario controlador;
-    public ModuloMantenimientoUsuarios() {
+    Login login;
+    MenuPrincipal menuPrincipal;
+    public ModuloMantenimientoUsuarios(MenuPrincipal menuPrincipal) {
         initComponents();
         deshabilitarCampos();
+        setVisible(false);
+        this.setLocation(250, 200);
+        this.menuPrincipal=menuPrincipal;
+        login=new Login(this,controlador);
+        controlador=new Controlador_Usuario(this, login);
+        login.agregarEventos(controlador);
+        
     }
 
   
@@ -70,6 +80,20 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         deshabilitarCampos();
     }
     
+     public void usuarioCorrecto()
+    {
+        login.setVisible(false);
+        menuPrincipal.setVisible(true);
+    }
+     
+     public void nuevoRegistro()
+     {
+         login.setVisible(false);
+         menuPrincipal.setVisible(true);
+         menuPrincipal.mostrarAlmacenamiento();
+         setVisible(true);
+     }
+    
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
@@ -85,8 +109,6 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         jt_Usuario = new javax.swing.JTextField();
         jt_Contrasenia = new javax.swing.JPasswordField();
         botones1 = new Vista.Botones();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_NombreCompleto.setText("Nombre Completo");
 

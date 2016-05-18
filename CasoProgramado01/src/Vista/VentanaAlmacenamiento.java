@@ -7,24 +7,39 @@
 package Vista;
 
 import Controlador.Controlador_MenuPrincipal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author SOFIA ELIZONDO
  */
-public class VentanaAlmacenamiento extends javax.swing.JFrame {
+public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionListener{
 
     Controlador_MenuPrincipal controlador; 
     public VentanaAlmacenamiento() {
         initComponents();
+        setVisible(false);
+        this.setLocation(250, 200);
     }
     public void agregarEventos(Controlador_MenuPrincipal controlador)
     {
         this.jbt_Archivos.addActionListener(controlador);
         this.jbt_BD.addActionListener(controlador);
         this.jbt_XML.addActionListener(controlador);
-        this.jbt_Salir.addActionListener(controlador);
+        this.jbt_Salir.addActionListener(this);
     }
+    
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getActionCommand().equals("Salir"))
+        {
+            System.exit(0);
+            setVisible(false);
+        }
+        
+    }
+    
     
     
     @SuppressWarnings("unchecked")
@@ -36,9 +51,12 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame {
         jbt_XML = new javax.swing.JButton();
         jbt_Salir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jbt_Archivos.setText("Archivos");
+        jbt_Archivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_ArchivosActionPerformed(evt);
+            }
+        });
 
         jbt_BD.setText("BD");
 
@@ -56,10 +74,12 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jbt_BD)
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbt_Salir)
-                    .addComponent(jbt_XML))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(jbt_XML)
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbt_Salir)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,13 +89,17 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame {
                     .addComponent(jbt_Archivos)
                     .addComponent(jbt_BD)
                     .addComponent(jbt_XML))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jbt_Salir)
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbt_ArchivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_ArchivosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_ArchivosActionPerformed
 
     /**
      * @param args the command line arguments
