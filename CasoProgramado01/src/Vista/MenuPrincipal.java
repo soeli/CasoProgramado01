@@ -124,7 +124,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(false);
+                new MenuPrincipal().setVisible(true);
             }
         });
     }

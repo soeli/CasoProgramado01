@@ -155,8 +155,6 @@ public class VentanaMatricula extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botones1 = new Vista.Botones();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jl_codigoMatricula.setText("Código Matrícula");
 
         btn_ConsultaRapidaCedula.setText("Buscar");

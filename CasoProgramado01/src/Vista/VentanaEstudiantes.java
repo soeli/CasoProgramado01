@@ -70,8 +70,6 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         informacionPersonal1 = new Vista.InformacionPersonal();
         botones1 = new Vista.Botones();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

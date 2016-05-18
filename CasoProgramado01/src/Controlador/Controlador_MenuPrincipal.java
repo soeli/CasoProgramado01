@@ -59,27 +59,22 @@ public class Controlador_MenuPrincipal implements ActionListener{
             System.out.println("Salir");
             System.exit(0);
         }
-        if(e.getActionCommand().equals("Usuario"))
-        {
-            System.out.println("Administrador");
-            //frm_MantenimientoEstufiantes.setVisible(true);    
-        }
         if(e.getActionCommand().equals("Estudiantes"))
         {
             
             System.out.println("Estudiantes");
-            //frm_Matricula.setVisible(true);
+            ventanaEstudiantes.setVisible(true);
            
         }
         if(e.getActionCommand().equals("Cursos"))
         {
             System.out.println("Cursos");
-            //frm_MantenimientoCursos.setVisible(true);
+            ventanaCursos.setVisible(true);
         }
         if(e.getActionCommand().equals("Matricula"))
         {
             System.out.println("Matricula");
-            //frm_Matricula.setVisible(true);
+            ventanaMatricula.setVisible(true);
            
         }
     

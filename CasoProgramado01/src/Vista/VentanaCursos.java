@@ -24,6 +24,7 @@ public class VentanaCursos extends javax.swing.JFrame {
      public Controlador_Cursos controlador;
     public VentanaCursos(ConexionBD conexionBD,ArchivoCurso archivoCurso) {
         initComponents();
+        this.setLocation(250, 200);
         controlador=new Controlador_Cursos(this, conexionBD,archivoCurso);
         agregarEventos();
     }
@@ -76,8 +77,6 @@ public class VentanaCursos extends javax.swing.JFrame {
 
         informacionCursos1 = new Vista.InformacionCursos();
         botones1 = new Vista.Botones();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
