@@ -18,9 +18,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     Controlador_MenuPrincipal controlador_MenuPrincipal;
     
-    public MenuPrincipal() {
+    public MenuPrincipal() 
+    {
         initComponents();
-        setVisible(false);
         this.setLocation(200, 100);
         controlador_MenuPrincipal= new Controlador_MenuPrincipal();
         agregarEventos();
@@ -124,7 +124,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipal().setVisible(false);
             }
         });
     }

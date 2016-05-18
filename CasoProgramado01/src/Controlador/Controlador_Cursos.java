@@ -5,6 +5,9 @@
  */
 package Controlador;
 
+
+import Modelo.ArchivoCurso;
+import Modelo.ConexionBD;
 import Vista.VentanaCursos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +22,7 @@ public class Controlador_Cursos implements ActionListener{
     VentanaCursos ventanaCursos;
     
     public ConexionBD conexionBD;
-    public Controlador_Cursos(VentanaCursos ventanaCursos, ConexionBD conexionBD)
+    public Controlador_Cursos(VentanaCursos ventanaCursos, ConexionBD conexionBD,ArchivoCurso archivoCurso)
     {
         this.ventanaCursos=ventanaCursos;
         this.conexionBD=conexionBD;

@@ -6,6 +6,12 @@
 
 package Vista;
 
+import Controlador.Controlador_Cursos;
+import Modelo.ArchivoCurso;
+import Modelo.ArchivoMatricula;
+import Modelo.ConexionBD;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SOFIA ELIZONDO
@@ -15,8 +21,48 @@ public class VentanaCursos extends javax.swing.JFrame {
     /**
      * Creates new form VentanaCursos
      */
-    public VentanaCursos() {
+     public Controlador_Cursos controlador;
+    public VentanaCursos(ConexionBD conexionBD,ArchivoCurso archivoCurso) {
         initComponents();
+        controlador=new Controlador_Cursos(this, conexionBD,archivoCurso);
+        agregarEventos();
+    }
+    
+    public void agregarEventos()
+    {
+        this.botones1.agregarEventosCursos(controlador);
+        this.informacionCursos1.agregarEventos(controlador);
+    }
+    public String devolverSigla()
+    {
+        return this.informacionCursos1.devolverSigla();
+    }
+    public void habilitarEdicion()
+    {
+        this.botones1.habilitarEdicion();
+        this.informacionCursos1.habilitarEdicion();
+    }
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.informacionCursos1.mostrarInformacion(arreglo);
+    }
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
+    public void habilitarAgregar()
+    {
+        this.botones1.habilitarAgregar();
+        this.informacionCursos1.habilitarCampos();
+    }
+    public String[] devolverInformacion()
+    {
+        return this.informacionCursos1.devolverInformacion();
+    }
+    public void resetearGUI()
+    {
+        this.botones1.deshabilitarBotones();
+        this.informacionCursos1.deshabilitarCampos();
     }
 
     /**

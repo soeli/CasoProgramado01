@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ArchivoEstudiante;
 import Modelo.ConexionBD;
 import Vista.VentanaEstudiantes;
 import java.awt.event.ActionEvent;
@@ -21,7 +22,7 @@ public class Controlador_Estudiantes implements ActionListener{
     VentanaEstudiantes ventanaEstudiantes;
     ConexionBD conexionBD; 
  
-    public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes)
+    public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes,ConexionBD conexionBD,ArchivoEstudiante archivoEstudiante)
     {
         //this.conexionBD=conexionBD;
         this.ventanaEstudiantes=ventanaEstudiantes;
@@ -51,9 +52,9 @@ public class Controlador_Estudiantes implements ActionListener{
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
-            conexionBD.eliminarEstudiante(frm_MantenimientoEstudiantes.devolverCedula(),"estudiantes","cedula");
-            frm_MantenimientoEstudiantes.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
-            frm_MantenimientoEstudiantes.resetearGUI();
+            conexionBD.eliminarEstudiante(ventanaEstudiantes.devolverCedula(),"estudiantes","cedula");
+            ventanaEstudiantes.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
+            ventanaEstudiantes.resetearVentana();
         }
     }
     public void buscar()

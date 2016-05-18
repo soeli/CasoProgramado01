@@ -6,6 +6,13 @@
 
 package Controlador;
 
+import Modelo.ArchivoCurso;
+import Modelo.ArchivoEstudiante;
+import Modelo.ArchivoMatricula;
+import Modelo.ConexionBD;
+import Vista.VentanaCursos;
+import Vista.VentanaEstudiantes;
+import Vista.VentanaMatricula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,18 +20,40 @@ import java.awt.event.ActionListener;
 public class Controlador_MenuPrincipal implements ActionListener{
     
 
+    ArchivoEstudiante archivoEstudiante;
+    ArchivoCurso archivoCurso;
+    ArchivoMatricula archivoMatricula;
+    ConexionBD conexionBD;
+    VentanaEstudiantes ventanaEstudiantes;
+    VentanaCursos ventanaCursos;
+    VentanaMatricula ventanaMatricula;
+    
     
     public Controlador_MenuPrincipal()
     {
-        //conexionBD = new ConexionBD();
-//        frm_MantenimientoEstufiantes= new FRM_MantenimientoEstudiantes(conexionBD);
-//        frm_MantenimientoCursos= new FRM_MantenimientoCursos(conexionBD); 
-//        frm_Matricula =new FRM_Matricula(frm_MantenimientoEstufiantes,frm_MantenimientoCursos, conexionBD);
+      ventanaEstudiantes= new VentanaEstudiantes(conexionBD,archivoEstudiante);
+      ventanaCursos= new VentanaCursos(conexionBD,archivoCurso); 
+      ventanaMatricula =new VentanaMatricula(ventanaEstudiantes,ventanaCursos,conexionBD,archivoMatricula);    
         
     }
     
     public void actionPerformed(ActionEvent e)
     {
+        if(e.getActionCommand().equals("Archivos"))
+        {
+            System.out.println("Archivos");
+        }
+        if(e.getActionCommand().equals("BD"))
+        {
+            conexionBD = new ConexionBD();
+
+            System.out.println("BD");
+        }
+        if(e.getActionCommand().equals("XML"))
+        {
+            System.out.println("XML");
+            System.exit(0);
+        }
         if(e.getActionCommand().equals("Salir"))
         {
             System.out.println("Salir");

@@ -5,6 +5,11 @@
  */
 package Controlador;
 
+import Modelo.ArchivoMatricula;
+import Modelo.ConexionBD;
+import Vista.VentanaCursos;
+import Vista.VentanaEstudiantes;
+import Vista.VentanaMatricula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,19 +20,14 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_Matricula implements ActionListener{
     
-    FRM_Matricula frm_matricula;
+    VentanaMatricula ventanaMatricula;
     boolean encontroEstudiante=false;
     boolean encontroCurso=false;
     public ConexionBD conexionBD;
     
-    public Controlador_Matricula(FRM_MantenimientoEstudiantes frm_MantenimientoEstufiantes,FRM_MantenimientoCursos frm_MantenimientoCursos,FRM_Matricula frm_matricula,ConexionBD conexionBD)
+    public Controlador_Matricula(VentanaEstudiantes ventanaEstudiantes,VentanaCursos ventanaCursos,VentanaMatricula ventanaMatricula,ConexionBD conexionBD,ArchivoMatricula archivoMatricula)
     {
-        this.conexionBD=frm_MantenimientoCursos.controlador.conexionBD;
-        conexionBD=frm_MantenimientoCursos.controlador.conexionBD;
-        conexionBD=frm_MantenimientoEstufiantes.controlador_FRM_MantenimientoEstudiantes.conexionBD;
-        this.frm_matricula=frm_matricula;
-        this.conexionBD=conexionBD;
-        
+        this.conexionBD=ventanaCursos.controlador.conexionBD;
     }
     
     public void actionPerformed(ActionEvent e)
@@ -35,59 +35,59 @@ public class Controlador_Matricula implements ActionListener{
         
         if(e.getActionCommand().equals("ConsultaRapidaCedula"))
         {
-            if(conexionBD.consultarEstudiante(frm_matricula.devolverCedula()))
+            if(conexionBD.consultarEstudiante(ventanaMatricula.devolverCedula()))
             {
                 String arreglo[]=conexionBD.getArregloInformacion();
-                frm_matricula.colocarNombreEstudiante(arreglo[0]);
+                ventanaMatricula.colocarNombreEstudiante(arreglo[0]);
                 encontroEstudiante=true;
             }
             else
             {
-                frm_matricula.mostrarMensaje("El estudiante no se encuentra, favor dirigirse al módulo de Mantenimiento Estudiantes");
+                ventanaMatricula.mostrarMensaje("El estudiante no se encuentra, favor dirigirse al módulo de Mantenimiento Estudiantes");
             }
             
         }
         if(e.getActionCommand().equals("ConsultaRapidaSigla"))
         {
-            if(conexionBD.consultarCurso(frm_matricula.devolverSigla()))
+            if(conexionBD.consultarCurso(ventanaMatricula.devolverSigla()))
             {
                 String arreglo[]=conexionBD.getArregloInformacion();
-                frm_matricula.colocarNombreCurso(arreglo[0]);
+                ventanaMatricula.colocarNombreCurso(arreglo[0]);
                 encontroCurso=true;
             }
             else
             {
-                frm_matricula.mostrarMensaje("El curso no se encuentra, favor dirigirse al módulo de Mantenimiento Cursos");
+                ventanaMatricula.mostrarMensaje("El curso no se encuentra, favor dirigirse al módulo de Mantenimiento Cursos");
             }
         }
         if(e.getActionCommand().equals("Agregar"))
         {
-            frm_matricula.agregarInformacionTabla();
-            frm_matricula.limpiarSigla();
+            ventanaMatricula.agregarInformacionTabla();
+            ventanaMatricula.limpiarSigla();
         }
         if(e.getActionCommand().equals("Finalizar"))
         {
             String arreglo[]=new String[3];
-            for(int contador=0;contador<frm_matricula.getCantidadFilas();contador++)
+            for(int contador=0;contador<ventanaMatricula.getCantidadFilas();contador++)
             {
-                arreglo[0]=frm_matricula.devolverCodigo();
-                arreglo[1]=frm_matricula.devolverDato(contador,1);
-                arreglo[2]=frm_matricula.devolverDato(contador,3);
+                arreglo[0]=ventanaMatricula.devolverCodigo();
+                arreglo[1]=ventanaMatricula.devolverDato(contador,1);
+                arreglo[2]=ventanaMatricula.devolverDato(contador,3);
                 conexionBD.registrarMatricula(arreglo);
             }
             //frm_matricula.colocarCodigo();
-            frm_matricula.resetearVentana();
+            ventanaMatricula.resetearVentana();
             encontroEstudiante=false;
             encontroCurso=false;
         }
         if(e.getActionCommand().equals("Consultar"))
         {
-            frm_matricula.mostrarMensaje("no entra ");
-            if(conexionBD.consultarMatricula(frm_matricula.devolverCodigo()))
+            ventanaMatricula.mostrarMensaje("no entra ");
+            if(conexionBD.consultarMatricula(ventanaMatricula.devolverCodigo()))
             {
                 String arreglo[]=conexionBD.getArregloInformacion();
-                frm_matricula.colocarNombreEstudiante(arreglo[0]);
-                frm_matricula.colocarNombreCurso(arreglo[1]);
+                ventanaMatricula.colocarNombreEstudiante(arreglo[0]);
+                ventanaMatricula.colocarNombreCurso(arreglo[1]);
                 
                 
             }
@@ -99,10 +99,10 @@ public class Controlador_Matricula implements ActionListener{
         
         }if(e.getActionCommand().equals("Eliminar"))
         {
-            conexionBD.eliminarEstudiante(frm_matricula.devolverSigla(),"matricula","codigo");
-            frm_matricula.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
-            frm_matricula.colocarCodigo();
-            frm_matricula.resetearVentana();
+            conexionBD.eliminarEstudiante(ventanaMatricula.devolverSigla(),"matricula","codigo");
+            ventanaMatricula.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
+            ventanaMatricula.colocarCodigo();
+            ventanaMatricula.resetearVentana();
         }
         
         
@@ -114,7 +114,7 @@ public class Controlador_Matricula implements ActionListener{
     {
         if(encontroEstudiante && encontroCurso)
         {
-            this.frm_matricula.habilitarAgregar();
+            this.ventanaMatricula.habilitarAgregar();
         }
     }
     

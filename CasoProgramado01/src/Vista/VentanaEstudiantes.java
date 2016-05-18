@@ -7,6 +7,8 @@
 package Vista;
 
 import Controlador.Controlador_Estudiantes;
+import Modelo.ArchivoEstudiante;
+import Modelo.ConexionBD;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +21,12 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
      * Creates new form VentanaEstudiantes
      */
     public Controlador_Estudiantes controlador_Estudiantes;
-    public VentanaEstudiantes() {
+    
+    public VentanaEstudiantes(ConexionBD conexionBD,ArchivoEstudiante archivoEstudiante) {
         initComponents();
         setVisible(false);
         this.setLocation(250, 200);
-        controlador_Estudiantes = new Controlador_Estudiantes(this);
+        controlador_Estudiantes = new Controlador_Estudiantes(this,conexionBD,archivoEstudiante);
         this.botones1.agregarEventos(controlador_Estudiantes);
         this.informacionPersonal1.agregarEventos(controlador_Estudiantes);
     }
@@ -50,7 +53,7 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         this.botones1.habilitarAgregar();
         this.informacionPersonal1.habilitarCampos();
     }
-    public void resetearGUI()
+    public void resetearVentana()
     {
         this.botones1.deshabilitarBotones();
         this.informacionPersonal1.deshabilitarCampos();

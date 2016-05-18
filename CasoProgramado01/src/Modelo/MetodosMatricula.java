@@ -6,6 +6,7 @@
 package Modelo;
 
 
+import Controlador.Controlador_Matricula;
 import java.util.ArrayList;
 
 
@@ -18,11 +19,11 @@ public class MetodosMatricula {
     private ArrayList <Matricula> arrayMatricula;
     String[] arregloInformacionMatricula=new String[2];
     String[] arregloInformacionConsultada=new String[4];
-    Controlador_FRM_Matricula controlador;
+    Controlador_Matricula controlador;
     MetodosCursos metodosCursos;
     MetodosEstudiantes metodosEstudiantes;
     
-    public MetodosMatricula(MetodosEstudiantes metodosEstudiantes,MetodosCursos metodosCursos,Controlador_FRM_Matricula controlador)
+    public MetodosMatricula(MetodosEstudiantes metodosEstudiantes,MetodosCursos metodosCursos)
     {
         arrayMatricula=new ArrayList <Matricula>();
         this.metodosCursos=metodosCursos;
