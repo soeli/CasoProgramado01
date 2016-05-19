@@ -23,13 +23,15 @@ public class Controlador_Estudiantes implements ActionListener{
     VentanaEstudiantes ventanaEstudiantes;
     ConexionBD conexionBD; 
     ArchivoEstudiante archivoEstudiante;
+    String metodoAlmacenamiento;
  
     public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes,ConexionBD conexionBD,ArchivoEstudiante archivoEstudiante)
     {
         this.conexionBD=conexionBD;
         this.ventanaEstudiantes=ventanaEstudiantes;
         this.archivoEstudiante=archivoEstudiante;
-        metodosEstudiantes= new MetodosEstudiantes();
+        
+        
         
     }
     
@@ -37,12 +39,20 @@ public class Controlador_Estudiantes implements ActionListener{
     
     public void actionPerformed(ActionEvent e)
     {
-        
-        
-        
         if(e.getActionCommand().equals("Agregar"))
         {
-            conexionBD.registrarEstudiante(ventanaEstudiantes.devolverInformacion());
+            if(metodoAlmacenamiento=="Archivos")
+            {
+                metodosEstudiantes.agregarEstudiante(ventanaEstudiantes.devolverInformacion());
+            }
+            if(metodoAlmacenamiento=="BD")
+            {
+               conexionBD.registrarEstudiante(ventanaEstudiantes.devolverInformacion());
+            }
+            if(metodoAlmacenamiento=="XML")
+            {
+
+            } 
             ventanaEstudiantes.mostrarMensaje("El estudiante fue registrado de forma correcta");
             ventanaEstudiantes.resetearVentana();
             
@@ -53,33 +63,82 @@ public class Controlador_Estudiantes implements ActionListener{
         }
         if(e.getActionCommand().equals("Modificar"))
         {
-            conexionBD.actualizarEstudiante(ventanaEstudiantes.devolverInformacion(),"estudiantes");
+            if(metodoAlmacenamiento=="Archivos")
+            {
+                metodosEstudiantes.modificarEstudiante(ventanaEstudiantes.devolverInformacion());
+            }
+            if(metodoAlmacenamiento=="BD")
+            {
+               conexionBD.actualizarEstudiante(ventanaEstudiantes.devolverInformacion(),"estudiantes");
+            }
+            if(metodoAlmacenamiento=="XML")
+            {
+
+            }
             ventanaEstudiantes.mostrarMensaje("El estudiante fue modificado de forma correcta.");
             ventanaEstudiantes.resetearVentana();
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
-            conexionBD.eliminarEstudiante(ventanaEstudiantes.devolverCedula(),"estudiantes","cedula");
+            if(metodoAlmacenamiento=="Archivos")
+            {
+                metodosEstudiantes.eliminarEstudiante(ventanaEstudiantes.devolverInformacion());
+            }
+            if(metodoAlmacenamiento=="BD")
+            {
+               conexionBD.eliminarEstudiante(ventanaEstudiantes.devolverCedula(),"estudiantes","cedula");
+            }
+            if(metodoAlmacenamiento=="XML")
+            {
+
+            }
             ventanaEstudiantes.mostrarMensaje("El estudiante fue eliminado de forma correcta.");
             ventanaEstudiantes.resetearVentana();
         }
     }
     public void buscar()
     {
-        
-       if(conexionBD.consultarEstudiante(ventanaEstudiantes.devolverCedula()))
-       {
-           
-            ventanaEstudiantes.mostrarInformacion(conexionBD.getArregloInformacion());
-            ventanaEstudiantes.habilitarEdicion();
-       }
-       else
-       {
-           ventanaEstudiantes.mostrarMensaje("La cédula buscada no se encuentra.");
-            ventanaEstudiantes.habilitarAgregar();
-       }
+       if(metodoAlmacenamiento=="Archivos")
+            {
+                    if(metodosEstudiantes.consultarEstudiante(ventanaEstudiantes.devolverCedula()))
+                    {
+                        ventanaEstudiantes.mostrarInformacion(metodosEstudiantes.getArregloInformacion());
+                        modificar();
+                   }
+                   else
+                   {
+                        agregar();
+                   }
+            }
+            if(metodoAlmacenamiento=="BD")
+            {
+                   if(conexionBD.consultarEstudiante(ventanaEstudiantes.devolverCedula()))
+                   {
+                       ventanaEstudiantes.mostrarInformacion(conexionBD.getArregloInformacion());
+                        modificar();
+                   }
+                   else
+                   {
+                        agregar();
+                   }
+            }
+            if(metodoAlmacenamiento=="XML")
+            {
+
+            }
+       
     }
     
+    public void modificar()
+    {
+        
+        ventanaEstudiantes.habilitarEdicion();
+    }
+    public void agregar()
+    {
+        ventanaEstudiantes.mostrarMensaje("La cédula buscada no se encuentra.");
+        ventanaEstudiantes.habilitarAgregar();
+    }
     public void ingresarInfo()
     {
         archivoEstudiante.crearArchivoEstudiante();
@@ -88,14 +147,23 @@ public class Controlador_Estudiantes implements ActionListener{
             this.archivoEstudiante.ingresarInformacionArchivoEstudiante(this.metodosEstudiantes.getObjeto(contador));
         }
     }
+ 
 
     public void seleccionAlmacenamiento(String almacenamiento) {
-        
-        if(almacenamiento=="archivos")
-        {
-            
-        }
-        
+        metodoAlmacenamiento=almacenamiento; 
+        if(metodoAlmacenamiento=="Archivos")
+            {
+                metodosEstudiantes= new MetodosEstudiantes();
+                archivoEstudiante=new ArchivoEstudiante();
+                if(this.archivoEstudiante.cargarArchivoEstudiante())
+                {
+                    metodosEstudiantes.llenarArray(archivoEstudiante.devolverInfromacionDelArchivoEstudiante());
+
+                }
+                else
+                {          
+                }
+            }
     }
     
     

@@ -23,7 +23,7 @@ public class MetodosMatricula {
     MetodosCursos metodosCursos;
     MetodosEstudiantes metodosEstudiantes;
     
-    public MetodosMatricula(MetodosEstudiantes metodosEstudiantes,MetodosCursos metodosCursos)
+    public MetodosMatricula(MetodosEstudiantes metodosEstudiantes,MetodosCursos metodosCursos,Controlador_Matricula controlador)
     {
         arrayMatricula=new ArrayList <Matricula>();
         this.metodosCursos=metodosCursos;
