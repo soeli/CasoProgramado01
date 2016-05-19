@@ -92,6 +92,7 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
     {
         login.setVisible(false);
         menuPrincipal.setVisible(true);
+        menuPrincipal.mostrarAlmacenamiento();
     }
      
      public void nuevoRegistro()

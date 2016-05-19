@@ -38,6 +38,13 @@ public class VentanaMatricula extends javax.swing.JFrame {
         modelo=new DefaultTableModel();
         colocarTitulosTabla();
     }
+    
+    public void seleccionAlmacenamiento(String almacenamiento)
+    {
+        controlador.seleccionAlmacenamiento(almacenamiento);
+        System.out.println(almacenamiento+" VentanaMatricula");
+    }
+    
     public void agregarInformacionTabla()
     {
         String arreglo[]=new String[4];

@@ -30,6 +30,13 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         this.botones1.agregarEventos(controlador_Estudiantes);
         this.informacionPersonal1.agregarEventos(controlador_Estudiantes);
     }
+    
+    public void seleccionAlmacenamiento(String almacenamiento)
+    {
+        controlador_Estudiantes.seleccionAlmacenamiento(almacenamiento);
+        System.out.println(almacenamiento+" VentanaEstudiantes");
+    }
+    
 
     public String[] devolverInformacion()
     {

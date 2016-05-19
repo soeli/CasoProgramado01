@@ -28,6 +28,12 @@ public class VentanaCursos extends javax.swing.JFrame {
         agregarEventos();
     }
     
+    public void seleccionAlmacenamiento(String almacenamiento)
+    {
+        controlador.seleccionAlmacenamiento(almacenamiento);
+        System.out.println(almacenamiento+" VentanaCursos");
+    }
+    
     public void agregarEventos()
     {
         this.botones1.agregarEventosCursos(controlador);
