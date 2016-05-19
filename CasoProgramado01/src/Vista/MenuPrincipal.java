@@ -45,6 +45,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     {
         almacenamiento.setVisible(true);
     }
+    
+    public void ocultarAlmacenamiento()
+    {
+        almacenamiento.setVisible(false);
+    } 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

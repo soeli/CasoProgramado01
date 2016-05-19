@@ -34,6 +34,7 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
     public void seleccionAlmacenamiento(String almacenamiento)
     {
         controlador_Estudiantes.seleccionAlmacenamiento(almacenamiento);
+        System.out.println(almacenamiento+" VentanaEstudiantes");
     }
     
 

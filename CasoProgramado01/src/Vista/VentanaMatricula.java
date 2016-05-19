@@ -42,6 +42,7 @@ public class VentanaMatricula extends javax.swing.JFrame {
     public void seleccionAlmacenamiento(String almacenamiento)
     {
         controlador.seleccionAlmacenamiento(almacenamiento);
+        System.out.println(almacenamiento+" VentanaMatricula");
     }
     
     public void agregarInformacionTabla()
