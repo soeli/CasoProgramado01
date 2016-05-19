@@ -27,7 +27,7 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         setVisible(false);
         this.setLocation(250, 200);
         controlador_Estudiantes = new Controlador_Estudiantes(this,conexionBD,archivoEstudiante);
-        this.botones1.agregarEventos(controlador_Estudiantes);
+        this.botones2.agregarEventos(controlador_Estudiantes);
         this.informacionPersonal2.agregarEventos(controlador_Estudiantes);
     }
     
@@ -57,17 +57,17 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
     }
     public void habilitarAgregar()
     {
-        this.botones1.habilitarAgregar();
+        this.botones2.habilitarAgregar();
         this.informacionPersonal2.habilitarCampos();
     }
     public void resetearVentana()
     {
-        this.botones1.deshabilitarBotones();
+        this.botones2.deshabilitarBotones();
         this.informacionPersonal2.deshabilitarCampos();
     }
     public void habilitarEdicion()
     {
-        this.botones1.habilitarEdicion();
+        this.botones2.habilitarEdicion();
         this.informacionPersonal2.habilitarEdicion();
     }
     @SuppressWarnings("unchecked")
@@ -79,6 +79,7 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         informacionPersonal2 = new Vista.InformacionPersonal();
         jLabel2 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(650, 550));
         getContentPane().setLayout(null);
         getContentPane().add(botones1);
         botones1.setBounds(589, 492, 0, 0);
