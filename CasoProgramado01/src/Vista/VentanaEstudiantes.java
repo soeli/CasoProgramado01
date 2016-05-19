@@ -21,6 +21,7 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
      * Creates new form VentanaEstudiantes
      */
     public Controlador_Estudiantes controlador_Estudiantes;
+    String tipoAlmacenamiento;
     
     public VentanaEstudiantes(ConexionBD conexionBD,ArchivoEstudiante archivoEstudiante) {
         initComponents();
@@ -35,7 +36,14 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
     {
         controlador_Estudiantes.seleccionAlmacenamiento(almacenamiento);
         System.out.println(almacenamiento+" VentanaEstudiantes");
+        tipoAlmacenamiento=almacenamiento;
     }
+    
+    public String almacenamientoArchivo()
+    {
+        return tipoAlmacenamiento;
+    }
+    
     
 
     public String[] devolverInformacion()
@@ -77,6 +85,12 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
         informacionPersonal1 = new Vista.InformacionPersonal();
         botones1 = new Vista.Botones();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,6 +115,13 @@ public class VentanaEstudiantes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        if(almacenamientoArchivo()=="Archivos")
+        {
+            controlador_Estudiantes.ingresarInfo();
+        }
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments

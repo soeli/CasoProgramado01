@@ -21,6 +21,8 @@ public class VentanaCursos extends javax.swing.JFrame {
      * Creates new form VentanaCursos
      */
      public Controlador_Cursos controlador;
+     String tipoAlmacenamiento;
+     
     public VentanaCursos(ConexionBD conexionBD,ArchivoCurso archivoCurso) {
         initComponents();
         this.setLocation(250, 200);
@@ -32,6 +34,12 @@ public class VentanaCursos extends javax.swing.JFrame {
     {
         controlador.seleccionAlmacenamiento(almacenamiento);
         System.out.println(almacenamiento+" VentanaCursos");
+        tipoAlmacenamiento=almacenamiento;
+    }
+    
+    public String almacenamientoArchivo()
+    {
+        return tipoAlmacenamiento;
     }
     
     public void agregarEventos()
@@ -83,6 +91,12 @@ public class VentanaCursos extends javax.swing.JFrame {
         informacionCursos1 = new Vista.InformacionCursos();
         botones1 = new Vista.Botones();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,6 +120,13 @@ public class VentanaCursos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+       if(almacenamientoArchivo()=="Archivos")
+        {
+            controlador.ingresarInfo();
+        }
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments

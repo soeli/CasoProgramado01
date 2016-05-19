@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ArchivoEstudiante;
 import Modelo.ConexionBD;
+import Modelo.MetodosEstudiantes;
 import Vista.VentanaEstudiantes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,14 +19,18 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_Estudiantes implements ActionListener{
     
-   // public MetodosEstudiantes metodosEstudiantes;
+    public MetodosEstudiantes metodosEstudiantes;
     VentanaEstudiantes ventanaEstudiantes;
     ConexionBD conexionBD; 
+    ArchivoEstudiante archivoEstudiante;
  
     public Controlador_Estudiantes(VentanaEstudiantes ventanaEstudiantes,ConexionBD conexionBD,ArchivoEstudiante archivoEstudiante)
     {
-        //this.conexionBD=conexionBD;
+        this.conexionBD=conexionBD;
         this.ventanaEstudiantes=ventanaEstudiantes;
+        this.archivoEstudiante=archivoEstudiante;
+        metodosEstudiantes= new MetodosEstudiantes();
+        
     }
     
    
@@ -74,10 +79,26 @@ public class Controlador_Estudiantes implements ActionListener{
             ventanaEstudiantes.habilitarAgregar();
        }
     }
+    
+    public void ingresarInfo()
+    {
+        archivoEstudiante.crearArchivoEstudiante();
+        for(int contador=0;contador<this.metodosEstudiantes.getTamnio();contador++)
+        {
+            this.archivoEstudiante.ingresarInformacionArchivoEstudiante(this.metodosEstudiantes.getObjeto(contador));
+        }
+    }
 
     public void seleccionAlmacenamiento(String almacenamiento) {
         
+        if(almacenamiento=="archivos")
+        {
+            
+        }
+        
     }
+    
+    
     
     
     

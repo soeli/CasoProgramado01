@@ -29,6 +29,7 @@ public class VentanaMatricula extends javax.swing.JFrame {
     DefaultTableModel modelo;
     Controlador_Matricula controlador;
     MetodosMatricula metodosMatricula;
+    String tipoAlmacenamiento;
     
     public VentanaMatricula(VentanaEstudiantes ventanaEstudiantes,VentanaCursos ventanaCursos,ConexionBD conexionBD,ArchivoMatricula archivoMatricula) {
         initComponents();
@@ -43,6 +44,12 @@ public class VentanaMatricula extends javax.swing.JFrame {
     {
         controlador.seleccionAlmacenamiento(almacenamiento);
         System.out.println(almacenamiento+" VentanaMatricula");
+        tipoAlmacenamiento=almacenamiento;   
+    }
+    
+    public String almacenamientoArchivo()
+    {
+        return tipoAlmacenamiento;
     }
     
     public void agregarInformacionTabla()
@@ -162,6 +169,12 @@ public class VentanaMatricula extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botones1 = new Vista.Botones();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
         jl_codigoMatricula.setText("Código Matrícula");
 
         btn_ConsultaRapidaCedula.setText("Buscar");
@@ -270,6 +283,13 @@ public class VentanaMatricula extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        if(almacenamientoArchivo()=="Archivos")
+        {
+            controlador.ingresarInfo();
+        }
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments
