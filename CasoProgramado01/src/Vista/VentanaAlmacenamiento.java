@@ -51,9 +51,11 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
         jbt_Salir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(886, 314));
         getContentPane().setLayout(null);
 
         jbt_Archivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-01.png"))); // NOI18N
+        jbt_Archivos.setActionCommand("Archivos");
         jbt_Archivos.setOpaque(false);
         jbt_Archivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,16 +66,19 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
         jbt_Archivos.setBounds(310, 90, 140, 140);
 
         jbt_BD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-02.png"))); // NOI18N
+        jbt_BD.setActionCommand("BD");
         jbt_BD.setOpaque(false);
         getContentPane().add(jbt_BD);
         jbt_BD.setBounds(480, 90, 140, 140);
 
         jbt_XML.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-03.png"))); // NOI18N
+        jbt_XML.setActionCommand("XML");
         jbt_XML.setOpaque(false);
         getContentPane().add(jbt_XML);
         jbt_XML.setBounds(650, 90, 140, 140);
 
         jbt_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-08.png"))); // NOI18N
+        jbt_Salir.setActionCommand("Salir");
         getContentPane().add(jbt_Salir);
         jbt_Salir.setBounds(770, 240, 70, 70);
 
