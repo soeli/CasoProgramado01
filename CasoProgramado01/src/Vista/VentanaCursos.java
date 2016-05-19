@@ -124,7 +124,7 @@ public class VentanaCursos extends javax.swing.JFrame {
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
        if(almacenamientoArchivo()=="Archivos")
         {
-            controlador.ingresarInfo();
+           // controlador.ingresarInfo();
         }
     }//GEN-LAST:event_formComponentHidden
 

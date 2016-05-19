@@ -25,13 +25,28 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
     public void agregarEventos(Controlador_MenuPrincipal controlador)
     {
         this.jbt_Archivos.addActionListener(controlador);
+        this.jbt_Archivos.addActionListener(this);
         this.jbt_BD.addActionListener(controlador);
+        this.jbt_BD.addActionListener(this);
         this.jbt_XML.addActionListener(controlador);
+        this.jbt_XML.addActionListener(this);
         this.jbt_Salir.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e)
     {
+        if(e.getActionCommand().equals("Archivos"))
+        {
+            setVisible(false);
+        }
+        if(e.getActionCommand().equals("BD"))
+        {
+            setVisible(false);
+        }
+        if(e.getActionCommand().equals("XML"))
+        {
+            setVisible(false);
+        }
         if(e.getActionCommand().equals("Salir"))
         {
             setVisible(false);
@@ -60,6 +75,11 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
         jbt_Archivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbt_ArchivosActionPerformed(evt);
+            }
+        });
+        jbt_Archivos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jbt_ArchivosKeyPressed(evt);
             }
         });
         getContentPane().add(jbt_Archivos);
@@ -93,6 +113,12 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
     private void jbt_ArchivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_ArchivosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbt_ArchivosActionPerformed
+
+    private void jbt_ArchivosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbt_ArchivosKeyPressed
+        setVisible(false);
+        System.out.println("Presionado");
+        
+    }//GEN-LAST:event_jbt_ArchivosKeyPressed
 
     /**
      * @param args the command line arguments
