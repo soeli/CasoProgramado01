@@ -85,69 +85,42 @@ public class InformacionPersonal extends javax.swing.JPanel {
         jt_Direccion = new javax.swing.JTextField();
         btn_ConsultaRapida = new javax.swing.JButton();
 
+        setOpaque(false);
+        setLayout(null);
+
         jl_Cedula.setText("Cédula");
+        add(jl_Cedula);
+        jl_Cedula.setBounds(22, 30, 39, 16);
 
         jl_NombreCompleto.setText("Nombre Completo");
+        add(jl_NombreCompleto);
+        jl_NombreCompleto.setBounds(22, 102, 103, 16);
 
         jl_Direccion.setText("Dirección");
+        add(jl_Direccion);
+        jl_Direccion.setBounds(22, 135, 52, 16);
 
         jt_Cedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jt_CedulaKeyPressed(evt);
             }
         });
+        add(jt_Cedula);
+        jt_Cedula.setBounds(130, 27, 128, 22);
+        add(jt_NombreCompleto);
+        jt_NombreCompleto.setBounds(130, 99, 355, 22);
+        add(jt_Direccion);
+        jt_Direccion.setBounds(130, 132, 355, 22);
 
-        btn_ConsultaRapida.setText("Buscar");
+        btn_ConsultaRapida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultar.png"))); // NOI18N
         btn_ConsultaRapida.setActionCommand("Consulta_Rapida");
         btn_ConsultaRapida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ConsultaRapidaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jl_NombreCompleto)
-                    .addComponent(jl_Cedula, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_Direccion, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jt_Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_ConsultaRapida)
-                        .addGap(0, 68, Short.MAX_VALUE))
-                    .addComponent(jt_NombreCompleto)
-                    .addComponent(jt_Direccion, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jt_Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_Cedula)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_ConsultaRapida)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_NombreCompleto)
-                    .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_Direccion))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        add(btn_ConsultaRapida);
+        btn_ConsultaRapida.setBounds(265, 0, 103, 79);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jt_CedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_CedulaKeyPressed
