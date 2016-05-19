@@ -49,49 +49,38 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
         jbt_BD = new javax.swing.JButton();
         jbt_XML = new javax.swing.JButton();
         jbt_Salir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        jbt_Archivos.setText("Archivos");
+        getContentPane().setLayout(null);
+
+        jbt_Archivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-01.png"))); // NOI18N
+        jbt_Archivos.setOpaque(false);
         jbt_Archivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbt_ArchivosActionPerformed(evt);
             }
         });
+        getContentPane().add(jbt_Archivos);
+        jbt_Archivos.setBounds(310, 90, 140, 140);
 
-        jbt_BD.setText("BD");
+        jbt_BD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-02.png"))); // NOI18N
+        jbt_BD.setOpaque(false);
+        getContentPane().add(jbt_BD);
+        jbt_BD.setBounds(480, 90, 140, 140);
 
-        jbt_XML.setText("XML");
+        jbt_XML.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-03.png"))); // NOI18N
+        jbt_XML.setOpaque(false);
+        getContentPane().add(jbt_XML);
+        jbt_XML.setBounds(650, 90, 140, 140);
 
-        jbt_Salir.setText("Salir");
+        jbt_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CASO-08.png"))); // NOI18N
+        getContentPane().add(jbt_Salir);
+        jbt_Salir.setBounds(770, 240, 70, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jbt_Archivos)
-                .addGap(46, 46, 46)
-                .addComponent(jbt_BD)
-                .addGap(47, 47, 47)
-                .addComponent(jbt_XML)
-                .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbt_Salir)
-                .addGap(22, 22, 22))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbt_Archivos)
-                    .addComponent(jbt_BD)
-                    .addComponent(jbt_XML))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jbt_Salir)
-                .addGap(19, 19, 19))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondocaso-01.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 850, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,6 +95,7 @@ public class VentanaAlmacenamiento extends javax.swing.JFrame implements ActionL
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbt_Archivos;
     private javax.swing.JButton jbt_BD;
     private javax.swing.JButton jbt_Salir;
