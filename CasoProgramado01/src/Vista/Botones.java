@@ -81,45 +81,30 @@ public class Botones extends javax.swing.JPanel {
         btn_Agregar = new javax.swing.JButton();
         btn_Modificar = new javax.swing.JButton();
 
-        btn_Eliminar.setText("Eliminar");
+        setOpaque(false);
+        setLayout(null);
+
+        btn_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buttons2-04.png"))); // NOI18N
         btn_Eliminar.setToolTipText("");
-        btn_Eliminar.setActionCommand("Eliminar");
+        btn_Eliminar.setOpaque(false);
+        add(btn_Eliminar);
+        btn_Eliminar.setBounds(433, 0, 137, 113);
 
-        btn_Consultar.setText("Buscar");
+        btn_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buttons2-01.png"))); // NOI18N
         btn_Consultar.setActionCommand("Consultar");
+        btn_Consultar.setOpaque(false);
+        add(btn_Consultar);
+        btn_Consultar.setBounds(1, 0, 137, 113);
 
-        btn_Agregar.setText("Agregar");
-        btn_Agregar.setActionCommand("Agregar");
+        btn_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buttons2-02.png"))); // NOI18N
+        btn_Agregar.setOpaque(false);
+        add(btn_Agregar);
+        btn_Agregar.setBounds(145, 0, 137, 113);
 
-        btn_Modificar.setText("Modificar");
-        btn_Modificar.setActionCommand("Modificar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_Consultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Eliminar)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_Eliminar)
-                    .addComponent(btn_Modificar)
-                    .addComponent(btn_Agregar)
-                    .addComponent(btn_Consultar))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        btn_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buttons2-03.png"))); // NOI18N
+        btn_Modificar.setOpaque(false);
+        add(btn_Modificar);
+        btn_Modificar.setBounds(289, 0, 137, 113);
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -36,21 +36,21 @@ public class VentanaCursos extends javax.swing.JFrame {
     
     public void agregarEventos()
     {
-        this.botones1.agregarEventosCursos(controlador);
-        this.informacionCursos1.agregarEventos(controlador);
+        this.botones2.agregarEventosCursos(controlador);
+        this.informacionCursos2.agregarEventos(controlador);
     }
     public String devolverSigla()
     {
-        return this.informacionCursos1.devolverSigla();
+        return this.informacionCursos2.devolverSigla();
     }
     public void habilitarEdicion()
     {
-        this.botones1.habilitarEdicion();
-        this.informacionCursos1.habilitarEdicion();
+        this.botones2.habilitarEdicion();
+        this.informacionCursos2.habilitarEdicion();
     }
     public void mostrarInformacion(String arreglo[])
     {
-        this.informacionCursos1.mostrarInformacion(arreglo);
+        this.informacionCursos2.mostrarInformacion(arreglo);
     }
     public void mostrarMensaje(String mensaje)
     {
@@ -58,17 +58,17 @@ public class VentanaCursos extends javax.swing.JFrame {
     }
     public void habilitarAgregar()
     {
-        this.botones1.habilitarAgregar();
-        this.informacionCursos1.habilitarCampos();
+        this.botones2.habilitarAgregar();
+        this.informacionCursos2.habilitarCampos();
     }
     public String[] devolverInformacion()
     {
-        return this.informacionCursos1.devolverInformacion();
+        return this.informacionCursos2.devolverInformacion();
     }
     public void resetearGUI()
     {
-        this.botones1.deshabilitarBotones();
-        this.informacionCursos1.deshabilitarCampos();
+        this.botones2.deshabilitarBotones();
+        this.informacionCursos2.deshabilitarCampos();
     }
 
     /**
@@ -80,29 +80,20 @@ public class VentanaCursos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        informacionCursos1 = new Vista.InformacionCursos();
-        botones1 = new Vista.Botones();
+        botones2 = new Vista.Botones();
+        informacionCursos2 = new Vista.InformacionCursos();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(informacionCursos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(informacionCursos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().setLayout(null);
+        getContentPane().add(botones2);
+        botones2.setBounds(30, 380, 570, 113);
+        getContentPane().add(informacionCursos2);
+        informacionCursos2.setBounds(160, 180, 304, 267);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondocurso-01.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 640, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,7 +104,8 @@ public class VentanaCursos extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.Botones botones1;
-    private Vista.InformacionCursos informacionCursos1;
+    private Vista.Botones botones2;
+    private Vista.InformacionCursos informacionCursos2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
