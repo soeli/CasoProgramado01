@@ -15,6 +15,7 @@ public class MetodosEstudiantes {
     
     private ArrayList <Estudiante> arrayEstudiantes;
     String arregloInformacionConsultada[]=new String[2];
+    String nombreEstudiante;
     
     public MetodosEstudiantes()
     {
@@ -95,6 +96,17 @@ public class MetodosEstudiantes {
         this.arrayEstudiantes=estudiante;
     }
     
+    public String getNombreEstudiante(String cedula)
+    {
+        for(int contador=0;contador<arrayEstudiantes.size();contador++)
+        {
+            if(arrayEstudiantes.get(contador).getCedula().equals(cedula))
+            {
+                nombreEstudiante=arrayEstudiantes.get(contador).getNombrecompleto();
+            }
+        }
+        return nombreEstudiante;
+    }
 
     
 }

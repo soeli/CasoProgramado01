@@ -12,42 +12,44 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+  
     ModuloMantenimientoUsuarios mantenimientoUsuarios;
 
-    
+    //Metodo constructor de la clase
     public Login(ModuloMantenimientoUsuarios mantenimientoUsuarios,Controlador_Usuario controlador) {
         initComponents();
         setLocation(500,200);
         setVisible(true);
     }
     
+    //Metodo que devuelve el usuario
     public String devolverUsuario()
     {
         return this.jt_Usuario.getText();
     }
     
+    //Metodo que devuelve la informacion
     public String[] devolverInformacion()
     {
         String informacion[]=new String[3];
         informacion[0]=this.jt_Usuario.getText();
-        informacion[2]=this.jt_Contrasenia.getText();
+        informacion[1]=this.jt_Contrasenia.getText();
         
         return informacion;
     }
     
+    //Metodo que agrega eventos a los botones
     public void agregarEventos(Controlador_Usuario controlador)
     {
         this.jbtn_Aceptar.addActionListener(controlador);
         this.jbt_NuevoRegistro.addActionListener(controlador);
     }
-    
+
+    //Metodos para mostrar mensajes
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
@@ -63,54 +65,36 @@ public class Login extends javax.swing.JFrame {
         jbtn_Aceptar = new javax.swing.JButton();
         jt_Contrasenia = new javax.swing.JPasswordField();
         jbt_NuevoRegistro = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setMinimumSize(new java.awt.Dimension(320, 185));
+        getContentPane().setLayout(null);
 
         jl_Usuario.setText("Usuario");
+        getContentPane().add(jl_Usuario);
+        jl_Usuario.setBounds(25, 23, 43, 16);
+        getContentPane().add(jt_Usuario);
+        jt_Usuario.setBounds(118, 20, 169, 22);
 
         jl_Contraseña.setText("Contraseña");
+        getContentPane().add(jl_Contraseña);
+        jl_Contraseña.setBounds(25, 66, 65, 16);
 
         jbtn_Aceptar.setText("Aceptar");
+        getContentPane().add(jbtn_Aceptar);
+        jbtn_Aceptar.setBounds(43, 103, 77, 25);
+        getContentPane().add(jt_Contrasenia);
+        jt_Contrasenia.setBounds(118, 63, 169, 22);
 
         jbt_NuevoRegistro.setText("Nuevo Registro");
         jbt_NuevoRegistro.setActionCommand("Registro");
+        getContentPane().add(jbt_NuevoRegistro);
+        jbt_NuevoRegistro.setBounds(155, 103, 119, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_Usuario)
-                    .addComponent(jl_Contraseña))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jt_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                    .addComponent(jt_Contrasenia))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jbtn_Aceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jbt_NuevoRegistro)
-                .addGap(32, 32, 32))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Usuario)
-                    .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Contraseña)
-                    .addComponent(jt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbtn_Aceptar)
-                    .addComponent(jbt_NuevoRegistro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondocurso-01.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 310, 140);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,6 +103,7 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbt_NuevoRegistro;
     private javax.swing.JButton jbtn_Aceptar;
     private javax.swing.JLabel jl_Contraseña;

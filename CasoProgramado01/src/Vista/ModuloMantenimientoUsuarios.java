@@ -12,16 +12,15 @@ import Vista.Login;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ModuloMantenimientoUsuarios
-     */
     Controlador_Usuario controlador;
     Login login;
     MenuPrincipal menuPrincipal;
+    
+    //Metodo constructor de la clase
     public ModuloMantenimientoUsuarios(MenuPrincipal menuPrincipal) {
         initComponents();
         deshabilitarCampos();
@@ -31,11 +30,11 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         login=new Login(this,controlador);
         controlador=new Controlador_Usuario(this, login);
         login.agregarEventos(controlador);
-        this.botones1.agregarEventosUsuario(controlador);
+        this.botones2.agregarEventosUsuario(controlador);
         
     }
 
-  
+  //Metodo que devuelve la informacion del arreglo
     public String[] devolverInformacion()
     {
         String informacion[]=new String[3];
@@ -45,21 +44,25 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         
         return informacion;
     }
+    //Metodo que devuelve el usuario
     public String devolverUsuario()
     {
         return this.jt_Usuario.getText();
     }
+    //Metodo que muestra la informacion del arreglo
     public void mostrarInformacion(String arreglo[])
     {
         this.jt_Usuario.setText(arreglo[0]);
         this.jt_NombreCompleto.setText(arreglo[1]);
     }
+    //Metodo que habilita los campos para escribir
     public void habilitarCampos()
     {
         this.jt_NombreCompleto.setEnabled(true);
         this.jt_Usuario.setEnabled(true);
         this.jt_Contrasenia.setEnabled(true);
     }
+    //Metodo que deshabilita los campos para escribir
     public void deshabilitarCampos()
     {
         this.jt_Usuario.setEnabled(true);
@@ -69,32 +72,36 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         this.jt_NombreCompleto.setEnabled(false);
         this.jt_Contrasenia.setEnabled(false);
     }
+    //Metodo que modifica los botones y los cuadros de texto para modificar informacion
     public void habilitarEdicion()
     {
         this.jt_Usuario.setEnabled(false);
         this.jt_NombreCompleto.setEnabled(true);
         this.jt_Contrasenia.setEnabled(true);
-        this.botones1.habilitarEdicion();
+        this.botones2.habilitarEdicion();
     }
-    
+    //Metodo que modifica los botones y los cuadros de texto para agregar informacion
     public void habilitarAgregar()
     {
-        this.botones1.habilitarAgregar();
+        this.botones2.habilitarAgregar();
         this.habilitarCampos();
     }
+    //Metodo que modifica los botones y los cuadros de texto para resetear la ventana con informacion
     public void resetearVentana()
     {
-        this.botones1.deshabilitarBotones();
+        this.botones2.deshabilitarBotones();
         this.deshabilitarCampos();
     }
-    
+    //Metodo para saber si el usuario es correcto o no
      public void usuarioCorrecto()
     {
+        mostrarMensaje("        ********Usuario Correcto********\nProceda a seleccionar el tipo de almacenamiento");
         login.setVisible(false);
         menuPrincipal.setVisible(true);
         menuPrincipal.mostrarAlmacenamiento();
+        //setVisible(false);
     }
-     
+     //Metodo que controla el nuevo registr de un usuario
      public void nuevoRegistro()
      {
          login.setVisible(false);
@@ -102,7 +109,12 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
          menuPrincipal.mostrarAlmacenamiento();
          setVisible(true);
      }
-    
+     //Metodo que muestra el tipo de almacenamiento
+     public void mostrarAlmacenamiento()
+     {
+         menuPrincipal.mostrarAlmacenamiento();
+     }
+    //Metodo para mostrar un mensaje
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
@@ -120,64 +132,43 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
         jt_NombreCompleto = new javax.swing.JTextField();
         jt_Usuario = new javax.swing.JTextField();
         jt_Contrasenia = new javax.swing.JPasswordField();
-        botones1 = new Vista.Botones();
+        botones2 = new Vista.Botones();
+        jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(530, 340));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jl_NombreCompleto.setText("Nombre Completo");
+        getContentPane().add(jl_NombreCompleto);
+        jl_NombreCompleto.setBounds(110, 70, 103, 16);
 
         jl_Usuario.setText("Nombre Usuario");
+        getContentPane().add(jl_Usuario);
+        jl_Usuario.setBounds(110, 30, 92, 16);
 
         jl_Contraseña.setText("Contraseña");
+        getContentPane().add(jl_Contraseña);
+        jl_Contraseña.setBounds(110, 110, 65, 16);
 
         jt_NombreCompleto.setToolTipText("");
+        getContentPane().add(jt_NombreCompleto);
+        jt_NombreCompleto.setBounds(250, 70, 163, 22);
+        getContentPane().add(jt_Usuario);
+        jt_Usuario.setBounds(250, 30, 163, 22);
+        getContentPane().add(jt_Contrasenia);
+        jt_Contrasenia.setBounds(250, 110, 163, 22);
+        getContentPane().add(botones2);
+        botones2.setBounds(20, 170, 470, 100);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_NombreCompleto)
-                            .addComponent(jl_Contraseña)
-                            .addComponent(jl_Usuario))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addComponent(jt_Contrasenia))
-                            .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Usuario)
-                    .addComponent(jt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_NombreCompleto)
-                    .addComponent(jt_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_Contraseña))
-                .addGap(18, 18, 18)
-                .addComponent(botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondocurso-01.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 520, 290);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,7 +183,8 @@ public class ModuloMantenimientoUsuarios extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.Botones botones1;
+    private Vista.Botones botones2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jl_Contraseña;
     private javax.swing.JLabel jl_NombreCompleto;
     private javax.swing.JLabel jl_Usuario;

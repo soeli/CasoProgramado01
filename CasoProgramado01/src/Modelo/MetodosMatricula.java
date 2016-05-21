@@ -81,11 +81,11 @@ public class MetodosMatricula {
             }
         }
     }
-    public void eliminarMatricula(String arreglo[])
+    public void eliminarMatricula(String codigo)
     {
         for(int contador=0;contador<arrayMatricula.size();contador++)
         {
-            if(arrayMatricula.get(contador).getCodigo().equals(arreglo[0]))
+            if(arrayMatricula.get(contador).getCodigo().equals(codigo))
             {
                 arrayMatricula.remove(contador);
             }
@@ -105,21 +105,20 @@ public class MetodosMatricula {
         return this.arregloInformacionConsultada;
     }
     
-    public String devolverCodigo()
+    public String devolverCodigo(String codigo)
     {
-        String codigo= "0000";
-        if(arrayMatricula.size()==0)
+        int numero=Integer.parseInt(codigo);
+        String nuevoCodigo="";
+        numero+=1;
+        if(numero<10)
         {
-            codigo+=1;
+            nuevoCodigo="00"+numero;
         }
         else
         {
-            int numero=Integer.parseInt(arrayMatricula.get(arrayMatricula.size()-1).getCodigo());
-            numero++;
-            codigo="0000"+numero;
+            nuevoCodigo="0"+numero;
         }
-        codigo=codigo.substring(codigo.length()-5, codigo.length());
-        return codigo; 
+        return nuevoCodigo; 
     }
     
     

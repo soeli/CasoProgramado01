@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class Usuario implements Serializable{
 

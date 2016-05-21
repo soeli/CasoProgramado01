@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class MetodosUsuario {
       
@@ -52,6 +52,21 @@ public class MetodosUsuario {
         }
         return existe;
     
+    }
+    
+    public boolean comprobarUsuario(String[] string)
+    {
+        boolean coincide=false;
+            for(int contador=0;contador<arrayUsuario.size();contador++)
+             {
+            if(arrayUsuario.get(contador).getUsuario().equals(string[0]))
+            {
+                if(arrayUsuario.get(contador).getContrasenia().equals(string[1]))
+                coincide=true;
+            }
+        
+            }
+        return coincide;
     }
     public void modificarUsuario(String arreglo[])
     {

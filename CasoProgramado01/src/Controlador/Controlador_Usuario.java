@@ -15,9 +15,8 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
-//Cambiar nombre de mesajes
 public class Controlador_Usuario implements ActionListener{
     
    public MetodosUsuario metodosUsuario;
@@ -46,7 +45,7 @@ public class Controlador_Usuario implements ActionListener{
         
         if(e.getActionCommand().equals("Aceptar"))
         {
-          if(metodosUsuario.consultarUsuario(login.devolverUsuario()))
+          if(metodosUsuario.comprobarUsuario(login.devolverInformacion()))
           {
               mantenimientoUsuarios.usuarioCorrecto();
           }

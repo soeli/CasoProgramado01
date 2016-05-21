@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class ArchivoUsuario {
     ObjectOutputStream archivoSalidaUsuario;

@@ -10,13 +10,14 @@ import Controlador.Controlador_Cursos;
 
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class InformacionCursos extends javax.swing.JPanel {
 
-    /**
-     * Creates new form InformacionCursos
-     */
+    
+    
+    Controlador_Cursos controlador;
+            
     public InformacionCursos() {
         initComponents();
         cargarCreditos();
@@ -34,6 +35,7 @@ public void cargarCreditos()
     }
     public void agregarEventos(Controlador_Cursos controlador)
     {
+        this.controlador=controlador;
         this.btn_ConsultaRapida.addActionListener(controlador);
     }
     public String devolverSigla()
@@ -49,11 +51,13 @@ public void cargarCreditos()
     }
     public void mostrarInformacion(String arreglo[])
     {
-        this.jt_Nombre.setText(arreglo[0]);
-        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[1]));;
-        this.jt_Horario.setText(arreglo[2]);
+       this.jt_Sigla.setText(arreglo[0]);
+        this.jt_Nombre.setText(arreglo[1]);
+        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[2]));;
+        this.jt_Horario.setText(arreglo[3]);
         
     }
+    
     public void habilitarCampos()
     {
         this.jt_Nombre.setEnabled(true);
@@ -103,73 +107,54 @@ public void cargarCreditos()
         jt_Nombre = new javax.swing.JTextField();
         jl_Creditos = new javax.swing.JLabel();
 
-        jcb_Creditos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setOpaque(false);
+        setLayout(null);
 
-        btn_ConsultaRapida.setText("Buscar");
+        jcb_Creditos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(jcb_Creditos);
+        jcb_Creditos.setBounds(91, 112, 184, 22);
+
+        btn_ConsultaRapida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consultar.png"))); // NOI18N
         btn_ConsultaRapida.setActionCommand("ConsultaRapida");
+        btn_ConsultaRapida.setContentAreaFilled(false);
+        add(btn_ConsultaRapida);
+        btn_ConsultaRapida.setBounds(203, 0, 72, 70);
 
         jl_Horario.setText("Horario");
+        add(jl_Horario);
+        jl_Horario.setBounds(7, 150, 60, 16);
+        add(jt_Horario);
+        jt_Horario.setBounds(91, 147, 184, 22);
+
+        jt_Sigla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jt_SiglaKeyPressed(evt);
+            }
+        });
+        add(jt_Sigla);
+        jt_Sigla.setBounds(76, 13, 115, 22);
 
         jl_Sigla.setText("Sigla");
+        add(jl_Sigla);
+        jl_Sigla.setBounds(14, 16, 50, 16);
 
         jl_Nombre.setText("Nombre");
+        add(jl_Nombre);
+        jl_Nombre.setBounds(7, 80, 60, 16);
+        add(jt_Nombre);
+        jt_Nombre.setBounds(70, 77, 205, 22);
 
         jl_Creditos.setText("Créditos");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jl_Sigla)
-                        .addGap(34, 34, 34)
-                        .addComponent(jt_Sigla, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_ConsultaRapida))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jl_Nombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jl_Creditos)
-                                    .addComponent(jl_Horario))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jcb_Creditos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jt_Horario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Sigla)
-                    .addComponent(jt_Sigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_ConsultaRapida))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Nombre)
-                    .addComponent(jt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Creditos)
-                    .addComponent(jcb_Creditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Horario)
-                    .addComponent(jt_Horario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jl_Creditos);
+        jl_Creditos.setBounds(7, 115, 70, 16);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jt_SiglaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_SiglaKeyPressed
+        if(evt.getKeyCode()==10)
+        {
+            this.controlador.buscar();
+        } 
+    }//GEN-LAST:event_jt_SiglaKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

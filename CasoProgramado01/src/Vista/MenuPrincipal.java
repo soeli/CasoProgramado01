@@ -11,12 +11,14 @@ import Vista.VentanaAlmacenamiento;
 import javax.swing.JOptionPane;
 /**
  *
- * @author SOFIA ELIZONDO
+ * @author Sofia Elizondo y Erika Jones
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     Controlador_MenuPrincipal controlador_MenuPrincipal;
     VentanaAlmacenamiento almacenamiento;
+    
+    //Metodo constructor de la clase
     public MenuPrincipal() 
     {
         initComponents();
@@ -26,12 +28,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         almacenamiento= new VentanaAlmacenamiento();
         almacenamiento.agregarEventos(controlador_MenuPrincipal);
     }
-    
+    //Metodo para mostrar un mensaje
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
     }
-    
+    //Metodo que agrega eventos a los botones, items del menu y demas
     public void agregarEventos()
     {
         this.jm_Salir.addActionListener(controlador_MenuPrincipal);
@@ -39,13 +41,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btn_Cursos.addActionListener(controlador_MenuPrincipal);
         this.btn_Matricula.addActionListener(controlador_MenuPrincipal);
         this.jm_Usuario.addActionListener(controlador_MenuPrincipal);
+        this.jl_Almacenamiento.addActionListener(controlador_MenuPrincipal);
     }
     
+    //Metodo que controla la vista del almacenamiento
     public void mostrarAlmacenamiento()
     {
         almacenamiento.setVisible(true);
     }
-    
+    ///metodo para ocultar la vista del almacenamiento
     public void ocultarAlmacenamiento()
     {
         almacenamiento.setVisible(false);
@@ -61,6 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_Administrador = new javax.swing.JMenu();
+        jl_Almacenamiento = new javax.swing.JMenuItem();
         jm_Usuario = new javax.swing.JMenuItem();
         jm_Propiedades = new javax.swing.JMenu();
         jm_Salir = new javax.swing.JMenuItem();
@@ -68,25 +73,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Estudiantes.setText("Estudiantes");
+        btn_Estudiantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante.png"))); // NOI18N
+        btn_Estudiantes.setActionCommand("Estudiantes");
         btn_Estudiantes.setContentAreaFilled(false);
-        getContentPane().add(btn_Estudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        getContentPane().add(btn_Estudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
 
-        btn_Cursos.setText("Cursos");
+        btn_Cursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cursos.png"))); // NOI18N
+        btn_Cursos.setActionCommand("Cursos");
         btn_Cursos.setContentAreaFilled(false);
-        getContentPane().add(btn_Cursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        getContentPane().add(btn_Cursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
-        btn_Matricula.setText("Matricula");
+        btn_Matricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/matricula.png"))); // NOI18N
+        btn_Matricula.setActionCommand("Matricula");
         btn_Matricula.setContentAreaFilled(false);
         btn_Matricula.setFocusPainted(false);
-        getContentPane().add(btn_Matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
+        getContentPane().add(btn_Matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, -1, -1));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoprin-01.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jm_Administrador.setText("Administrador");
 
-        jm_Usuario.setText("Usuario");
+        jl_Almacenamiento.setText("Almacenamiento");
+        jm_Administrador.add(jl_Almacenamiento);
+
+        jm_Usuario.setText("Nuevo Usuario");
         jm_Administrador.add(jm_Usuario);
 
         jMenuBar1.add(jm_Administrador);
@@ -150,6 +161,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_Estudiantes;
     private javax.swing.JButton btn_Matricula;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jl_Almacenamiento;
     private javax.swing.JMenu jm_Administrador;
     private javax.swing.JMenu jm_Propiedades;
     private javax.swing.JMenuItem jm_Salir;

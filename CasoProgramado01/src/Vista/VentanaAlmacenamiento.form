@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[886, 314]"/>
+      <Dimension value="[870, 360]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -33,7 +33,7 @@
           <Image iconType="3" name="/Imagenes/CASO-01.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="Archivos"/>
-        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_ArchivosActionPerformed"/>
@@ -41,7 +41,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="90" width="140" height="140"/>
+          <AbsoluteConstraints x="310" y="90" width="140" height="150"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -51,11 +51,11 @@
           <Image iconType="3" name="/Imagenes/CASO-02.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="BD"/>
-        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="480" y="90" width="140" height="140"/>
+          <AbsoluteConstraints x="480" y="90" width="140" height="150"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -65,11 +65,11 @@
           <Image iconType="3" name="/Imagenes/CASO-03.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="XML"/>
-        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="650" y="90" width="140" height="140"/>
+          <AbsoluteConstraints x="650" y="90" width="150" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
